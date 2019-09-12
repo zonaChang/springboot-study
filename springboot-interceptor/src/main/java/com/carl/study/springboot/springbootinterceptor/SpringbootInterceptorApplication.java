@@ -16,13 +16,14 @@ public class SpringbootInterceptorApplication implements WebMvcConfigurer {
 
     @Bean
     public LoginInterceptor loginInterceptor(){
-        return loginInterceptor();
+        return new LoginInterceptor();
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor())
-                .addPathPatterns("", "")
-                .excludePathPatterns("");
+                .addPathPatterns("/**", "/api/register/logout")
+                .excludePathPatterns("/api/register/**")
+        ;
     }
 }
