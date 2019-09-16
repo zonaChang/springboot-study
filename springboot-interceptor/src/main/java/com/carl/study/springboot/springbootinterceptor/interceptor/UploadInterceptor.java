@@ -10,16 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author changez
  * @desc
- * @datetime 2019/9/9 23:53
+ * @datetime 2019/9/16 9:52
  */
 @Slf4j
-public class LoginInterceptor extends HandlerInterceptorAdapter {
+public class UploadInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        String name = request.getParameter("name");
-        log.info("name={}, url={}", name, request.getRequestURI());
-        return "carl".equals(name);
+        log.info("uri={}", request.getRequestURI());
+        return true;
     }
 }
